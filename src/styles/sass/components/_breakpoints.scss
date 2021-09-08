@@ -1,0 +1,29 @@
+/* Media Queries Mixin
+**********************/
+
+@mixin media ($breakpoint) {
+
+  @if $breakpoint == tablet-s {
+    @media screen and (min-width: 440px) { @content; }
+  }
+
+  @else if $breakpoint == tablet-m {
+    @media screen and (min-width: 560px) { @content; }
+  }
+
+  @else if $breakpoint == tablet-l {
+    @media screen and (min-width: 700px) { @content; }
+  }
+
+  @else if $breakpoint == tablet-xl {
+    @media screen and (min-width: 768px) { @content; }
+  }
+
+  @else if $breakpoint == desktop-m {
+    @media screen and (min-width: 1000px) { @content; }
+  }
+
+  @else if $breakpoint == desktop-xl {
+    @media screen and (max-width: 1440px) { @content; }
+  }
+}

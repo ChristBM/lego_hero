@@ -1,0 +1,29 @@
+.footer {
+    visibility: hidden;
+    grid-area: 4/1/5/5;
+    width: 100%;
+    height: 100%;
+    background-color: $white-color;
+    animation: footerVisible 0.2s ease-out 2.5s forwards;
+
+    &__menu {
+        width: 70%;
+        height: 100%;
+        background-color: $white-color;
+
+        @include media (desktop-m) {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    @include media (tablet-s) {
+        grid-area: 4/1/5/9;
+    }
+    @include media (tablet-xl) {
+        grid-area: 3/1/4/6;
+    }
+    @include media (desktop-m) {
+        grid-area: 3/1/4/8;
+    }
+}

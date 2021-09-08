@@ -1,0 +1,51 @@
+.main {
+    visibility: hidden;
+    grid-area: 3/1/4/5;
+    width: 100%;
+    height: 100%;
+    padding: 60px 16px;
+    background-color: $white-color;
+    animation: mainVisible 0.2s ease-out 2s forwards;
+
+    @include media (tablet-s) {
+        grid-area: 3/1/4/9;
+    }
+    @include media (tablet-xl) {
+        grid-area: 2/1/3/5;
+    }
+    @include media (desktop-m) {
+        grid-area: 2/2/3/8;
+        padding: 50px 16px;
+    }
+
+    .article {
+        display: flex;
+        width: 100%;
+        height: auto;;
+        flex-direction: column;
+        justify-content: space-evenly;
+        transform: translateX(-100%);
+        animation: main 2s ease-in-out 1.5s forwards;
+
+        &__subt {
+            padding-inline-start: 20px;
+            @include font-style( $font-princp, $font-weight-1, $font-size-sub, 0px, $gray-color );
+
+            @include media (desktop-m) {
+                    font-size: $font-size-h;
+            }
+        }
+        &__title {
+            margin-block-end: 15px;
+            @include font-style( $font-princp, $font-weight-2, $font-size-h, 0px, $black-color );
+
+            @include media (desktop-m) {
+                font-size: $font-size-xxl;
+            }
+        }
+        &__resum {
+            width: 30ch;
+            @include font-style( $font-princp, $font-weight-1, $font-size-p, 0px, $black-color );
+        }
+    }
+}

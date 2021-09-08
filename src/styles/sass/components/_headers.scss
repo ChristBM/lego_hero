@@ -1,0 +1,40 @@
+.header {
+    grid-area: 1/1/2/5;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: $white-color;
+
+    @include media (tablet-s) {
+        grid-area: 1/1/2/9;
+    }
+    @include media (tablet-xl) {
+        grid-area: 1/1/2/9;
+    }
+    @include media (desktop-m) {
+        grid-area: 1/2/2/8;
+        flex-direction: row;
+    }
+
+    &__logo {
+        width: 130px;
+        height: 130px;
+        border-radius: 5px;
+        animation: logo 2s ease-in-out 1.5s forwards;
+
+        @include media (desktop-m) {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            animation: logo_desktop 2s ease-in-out 1.5s;
+        }
+    }
+    &__menu {
+        width: 100%;
+        height: auto;
+        animation: navbar 2s ease-in-out 1.5s;
+    }
+}

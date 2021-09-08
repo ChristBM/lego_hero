@@ -1,0 +1,171 @@
+.modal {
+    grid-area: 1/1/5/5;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.322);
+
+    @include media (tablet-s) {
+        grid-area: 1/1/5/9;
+    }
+    @include media (tablet-xl) {
+        grid-area: 1/1/5/9;
+    }
+    @include media (desktop-m) {
+        grid-area: 1/1/5/13;
+        height: 100%;
+        width: 100%;
+    }
+
+    &__container {
+        display: flex;
+        width: 300px;
+        height: 500px;
+        border-radius: 20px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $white-color;
+        box-shadow: 0 0 5px $gray-color;
+
+        @include media (tablet-s) {
+            width: 400px;
+        }
+        @include media (desktop-m) {
+            width: 400px;
+        }
+    }
+    &__container:focus {
+        outline-width: 2px;
+        outline-style: solid;
+        outline-color: $red-color;
+        outline-offset: 5px;
+    }
+
+    &__btnclose {
+        width: 40px;
+        height: 40px;
+        margin-top: 8px;
+        margin-right: 8px;
+        border-style: none;
+        align-self: flex-end;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    &__btnclose:focus {
+        outline-style: none;
+    }
+    &__btnclose-x {
+        display: flex;
+        width: 40px;
+        height: 40px;
+        border: 3px solid $red-color;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        @include font-style( $font-princp, $font-weight-2, $font-size-sub, 0px, $black-color );
+    }
+    &__btnclose-x:hover {
+        border-color: $black-color;
+        color: $red-color;
+    }
+
+    &__slider {
+        width: 100%;
+        height: 65%;
+        padding: 10px 0;
+        perspective: 1000px;
+        perspective-origin: center;
+
+        &_input-a, &_input-b, &_input-c {
+            visibility: hidden;
+        }
+        &_container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            transform-style: preserve-3d;
+        }
+        &_container:focus {
+            outline-style: none;
+        }
+        &_imglabel-a, &_imglabel-b, &_imglabel-c {
+            display: flex;
+            width: 160px;
+            height: 250px;
+            border-radius: 10px;
+            position:absolute;
+            justify-content: center;
+            align-items: center;
+            background-color: $main-color;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+
+            @include media (tablet-s) {
+                width: 180px;
+            }
+        }
+        &_imglabel-a:focus, &_imglabel-b:focus, &_imglabel-c:focus {
+            outline-width: 2px;
+            outline-style: solid;
+            outline-color: $red-color;
+            outline-offset: 2px;
+        }
+        &_img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            cursor: pointer;
+        }
+        /* left */
+        &_input-a:checked ~ &_container &_imglabel-c,
+        &_input-b:checked ~ &_container &_imglabel-a,
+        &_input-c:checked ~ &_container &_imglabel-b {
+            transform: scale(0.95) translateX(-50%) translateZ(-50px);
+            opacity: 0.5;
+        }
+        /* Center */
+        &_input-a:checked ~ &_container &_imglabel-a,
+        &_input-b:checked ~ &_container &_imglabel-b,
+        &_input-c:checked ~ &_container &_imglabel-c {
+            transform: scale(1) translateX(0) translateZ(50px);
+            opacity: 1;
+        }
+        /* Right */
+        &_input-a:checked ~ &_container &_imglabel-b,
+        &_input-b:checked ~ &_container &_imglabel-c,
+        &_input-c:checked ~ &_container &_imglabel-a {
+            transform: scale(0.95) translateX(50%) translateZ(-50px);
+            opacity: 0.5;
+        }
+    }
+
+    &__btnbuy {
+        width: 240px;
+        height: 60px;
+        margin: 20px auto;
+        border-style: none;
+        border-radius: 5px;
+        background-color: $red-color;
+        transition-duration: 0.3s;
+        transition-timing-function: ease-out;
+        @include font-style( $font-princp, $font-weight-2, $font-size-sub, 0px, $white-color );
+    }
+    &__btnbuy:focus {
+        outline-width: 2px;
+        outline-style: solid;
+        outline-color: $red-color;
+        outline-offset: 2px;
+    }
+    &__btnbuy:hover {
+        cursor: pointer;
+        transform: scaleX(1.1);
+        transition: transform 0.3s ease-in;
+    }
+}
