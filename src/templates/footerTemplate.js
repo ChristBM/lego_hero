@@ -1,5 +1,5 @@
-import spiderman from '@images/spiderman.png'
-import robin from '@images/robin.png'
+import spiderman from '@images/spiderman.webp'
+import robin from '@images/robin.webp'
 import batman from '@images/batman.webp'
 
 const footerTemplate = () => {

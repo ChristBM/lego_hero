@@ -40,12 +40,6 @@
     transform: translateX(-100%);
     animation: menu_desing 1s ease-in-out 2.2s forwards;
 
-    @include media (desktop-m) {
-        flex-direction: row;
-        align-items: flex-end;
-        transform: translateY(100%);
-        animation: menu_desing_desktop 0.5s ease-in-out 2.2s forwards;
-    }
     &__li {
         width: 50%;
         height: 20%;
@@ -55,42 +49,26 @@
         box-shadow: 0 0 10px $gray-color;
         transform: translateX(-180%);
 
-        @include media (desktop-m) {
+/*         @include media (desktop-m) {
             width: 20%;
             height: 50%;
             border-radius: 15px 15px 0 0;
             transform: translateY(200px);
-        }
+        } */
     }
     &__li:nth-child(1)  {
         animation: li 1.5s ease-in-out 3s forwards;
-
-        @include media (desktop-m) {
-            animation: li_desktop 1.5s ease-in-out 2.5s forwards;
-        }
     }
     &__li:nth-child(2)  {
         animation: li 2s ease-in-out 3s forwards;
-
-        @include media (desktop-m) {
-            animation: li_desktop 2s ease-in-out 2.5s forwards;
-        }
     }
     &__li:nth-child(3)  {
         animation: li 2.5s ease-in-out 3s forwards;
-
-        @include media (desktop-m) {
-            animation: li_desktop 2.5s ease-in-out 2.5s forwards;
-        }
     }
     &__li:hover &__image {
         cursor: pointer;
         transform: scale(1.1) translateX(30px);
         transition: transform 0.2s ease-in-out;
-
-        @include media (desktop-m) {
-            transform: scale(1.1) translateY(-30px);
-        }
     }
     &__image {
         width: 90px;
@@ -98,30 +76,6 @@
         position: absolute;
         left: 70px;
         transition: transform 0.5s ease-in-out;
-
-        @include media (tablet-s) {
-            left: 100px;
-        }
-        @include media (tablet-m) {
-            left: 150px;
-        }
-        @include media (tablet-l) {
-            left: 200px;
-        }
-        @include media (tablet-xl) {
-            left: 100px;
-        }
-        @include media (desktop-m) {
-            width: 160px;
-            height: auto;
-            position: absolute;
-            bottom: 30px;
-            left: 0;
-            transition: transform 0.5s ease-in-out;
-        }
-        @include media (desktop-xl) {
-            left: 25px;
-        }
     }
     &__image:focus {
         outline-style: none;

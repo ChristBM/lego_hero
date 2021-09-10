@@ -1,4 +1,4 @@
-import lego from '@images/lego.png'
+import lego from '@images/lego.webp'
 
 const headerTemplate = () => {
     const view = `

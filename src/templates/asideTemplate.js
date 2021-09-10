@@ -1,4 +1,4 @@
-import superman from '@images/super-man.png'
+import superman from '@images/super-man.webp'
 
 const asideTemplate = () => {
     const view = `

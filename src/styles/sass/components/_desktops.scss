@@ -1,0 +1,94 @@
+@media screen and (min-width: 1000px) {
+    body {
+        width: 100vw;
+        height: 100vh;
+        overflow-y: hidden;
+    }
+    .page {
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: 80px repeat(2, 1fr);
+        column-gap: 48px;
+    }
+    .menu_designs {
+        flex-direction: row;
+        align-items: flex-end;
+        transform: translateY(100%);
+        animation: menu_desing_desktop 0.5s ease-in-out 2.2s forwards;
+
+        &__li {
+            width: 20%;
+            height: 50%;
+            border-radius: 15px 15px 0 0;
+            transform: translateY(200px);
+        }
+        &__li:nth-child(1) {
+            animation: li_desktop 1.5s ease-in-out 2.5s forwards;
+        }
+        &__li:nth-child(2) {
+            animation: li_desktop 2s ease-in-out 2.5s forwards;
+        }
+        &__li:nth-child(3) {
+            animation: li_desktop 2.5s ease-in-out 2.5s forwards;
+        }
+        &__li:hover &__image {
+            transform: scale(1.1) translateY(-30px);
+        }
+        &__image {
+            width: 160px;
+            height: auto;
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            transition: transform 0.5s ease-in-out;
+        }
+    }
+    .header {
+        grid-area: 1/2/2/8;
+        flex-direction: row;
+
+        &__logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            animation: logo_desktop 2s ease-in-out 1.5s;
+        }
+    }
+    .main {
+        grid-area: 2/2/3/8;
+        padding: 50px 16px;
+
+        &__subt {
+            font-size: $font-size-h;
+        }
+        &__title {
+            font-size: $font-size-xxl;
+        }
+    }
+    .aside {
+        grid-area: 1/8/4/13;
+
+        &__back {
+            border-radius: 0;
+        }
+    }
+    .footer {
+        grid-area: 3/1/4/8;
+
+        &__menu {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .modal {
+        grid-area: 1/1/5/13;
+        height: 100%;
+        width: 100%;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .menu_designs {
+        &__image{
+            left: 25px;
+        }
+    }
+}

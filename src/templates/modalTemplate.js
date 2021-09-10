@@ -1,12 +1,12 @@
-import spiderman1 from '@images/spiderman/spiderman1.png'
-import spiderman2 from '@images/spiderman/spiderman2.png'
-import spiderman3 from '@images/spiderman/spiderman3.png'
-import robin1 from '@images/robin/robin1.png'
-import robin2 from '@images/robin/robin2.png'
-import robin3 from '@images/robin/robin3.png'
-import batman1 from '@images/batman/batman1.png'
-import batman2 from '@images/batman/batman2.png'
-import batman3 from '@images/batman/batman3.png'
+import spiderman1 from '@images/spiderman/spiderman1.webp'
+import spiderman2 from '@images/spiderman/spiderman2.webp'
+import spiderman3 from '@images/spiderman/spiderman3.webp'
+import robin1 from '@images/robin/robin1.webp'
+import robin2 from '@images/robin/robin2.webp'
+import robin3 from '@images/robin/robin3.webp'
+import batman1 from '@images/batman/batman1.webp'
+import batman2 from '@images/batman/batman2.webp'
+import batman3 from '@images/batman/batman3.webp'
 
 const spiderman = [ spiderman1, spiderman2, spiderman3 ]
 const robin = [ robin1, robin2, robin3 ]

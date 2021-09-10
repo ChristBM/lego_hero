@@ -1,19 +1,38 @@
-import loaderTemplate from "@templates/loaderTemplate.js"
-import headerTemplate from "@templates/headerTemplate.js"
-import asideTemplate from "@templates/asideTemplate.js"
-import mainTemplate from "@templates/mainTemplate.js"
-import footerTemplate from "@templates/footerTemplate.js"
+import landingHero from "@pages/landingHero.js"
 import modalTemplate from "@templates/modalTemplate.js"
 
 import '@styles/sass/styles.scss'
 
+const tablet_media = matchMedia('screen and (min-width: 440px) and (max-width: 999px)')
+const desktop_media = matchMedia('screen and (min-width: 1000px)')
+const autoChangeSize = ( mediaquery ) => {
+
+    if(mediaquery.media === 'screen and (min-width: 440px) and (max-width: 999px)'){
+        if(mediaquery.matches){
+            import( '@styles/sass/styles-tablet.scss' )
+        }
+    }
+    else if(mediaquery.media === 'screen and (min-width: 1000px)' ){
+        if(mediaquery.matches){
+            import( '@styles/sass/styles-tablet.scss' )
+            import( '@styles/sass/styles-desktop.scss' )
+        }
+    }
+
+}
+tablet_media.addListener( autoChangeSize )
+desktop_media.addListener( autoChangeSize )
+autoChangeSize( tablet_media )
+autoChangeSize( desktop_media )
+
+
 function landingLoad() {
     const page = document.querySelector('.page')
-    page.innerHTML = `${loaderTemplate()}${headerTemplate()}${asideTemplate()}${mainTemplate()}${footerTemplate()}`
+    page.innerHTML = `${landingHero()}`
     console.log('ready')
     landingReady(page)
 }
-window.addEventListener( 'load', landingLoad )
+window.addEventListener( 'DOMContentLoaded', landingLoad )
 
 
 function landingReady (page)

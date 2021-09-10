@@ -1,15 +1,13 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-/* const MediaQueryPlugin = require('media-query-plugin') */
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 const TerserPlugin = require("terser-webpack-plugin")
-const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin")
 
 module.exports = {
     entry: "./src/index.js",
     output: {
-        path: path.resolve(__dirname, "dist"),
+        path: path.resolve(__dirname, "build"),
         filename: "[main].[contenthash].js",
         assetModuleFilename: 'assets/[hash][ext][query]',
         clean: true,
@@ -19,6 +17,7 @@ module.exports = {
         extensions: ['.js'],
         alias: {
             '@templates': path.resolve(__dirname, 'src/templates/'),
+            '@pages': path.resolve(__dirname, 'src/pages/'),
             '@styles': path.resolve(__dirname, 'src/styles/'),
             '@images': path.resolve(__dirname, 'src/assets/images/'),
         },
@@ -30,24 +29,21 @@ module.exports = {
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
-                    options: {
-                        presets: ["@babel/preset-env"]
-                    }
                 }
             },
             {
                 test: /\.css|.scss$/i,
-                use: [ MiniCssExtractPlugin.loader, "css-loader", /* MediaQueryPlugin.loader, */ "sass-loader" ],
+                use: [ MiniCssExtractPlugin.loader, "css-loader", "sass-loader" ],
             },
             {
-                test: /\.(png|jpg|jpeg|gif|webp)$/i,
+                test: /\.webp$/i,
                 type: 'asset/resource',
                 generator: {
                     filename: 'assets/images/[hash][ext][query]',
                 }
             },
             {
-                test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
+                test: /\.(woff|woff2)$/,
                 type: 'asset/resource',
                 generator: {
                     filename: 'assets/fonts/[hash][ext][query]',
@@ -57,14 +53,14 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
+            title: 'LegoHero',
+            filename: "index.[contenthash].html",
+            template: "./src/index.ejs",
             inject: 'body',
-            template: "./public/index.html",
-            filename: "./index.html"
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css'
         }),
-        /* new MediaQueryPlugin(), */
     ],
     optimization: {
         minimize: true,
@@ -73,7 +69,6 @@ module.exports = {
                 new TerserPlugin({
                     extractComments: true,
                 }),
-                new HtmlMinimizerPlugin(),
         ]
     }
 
